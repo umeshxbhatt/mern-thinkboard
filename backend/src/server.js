@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import path, { join } from "path";
 
 import notesRouter from "./routes/notesRouter.js";
 import { connectDB } from "./config/db.js";
@@ -11,14 +12,17 @@ dotenv.config({ quiet: true }); // 👈 quiet: true karne se saare tips gayab ho
 // create express app
 const app = express();
 const PORT = process.env.PORT || 5001;
+const __dirname = path.resolve();
 
 // middleware
+if (process.env.NODE_ENV !== "production") {
+  app.use(
+    cors({
+      origin: "http://localhost:5173",
+    }),
+  );
+}
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  }),
-);
 app.use(rateLimiter);
 
 // custom middleware
@@ -29,6 +33,14 @@ app.use(rateLimiter);
 
 // routes
 app.use("/notes", notesRouter);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 // first connect to db then laod the server
 connectDB().then(() => {
