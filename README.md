@@ -1,61 +1,64 @@
-# ⚡ DashFlow — All-in-One Daily Productivity & Utility Hub
+# ⚡ ThinkBoard — Modern Full-Stack Notes Workspace
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live%20Application-blue?style=for-the-badge&logo=vercel)](https://your-deployment-link.com)
-[![MERN Stack](https://img.shields.io/badge/Stack-MERN-green?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Application-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://mern-thinkboard-d3sq.onrender.com/)
+[![MERN Stack](https://img.shields.io/badge/Stack-MERN-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> A modern, modular full-stack web productivity dashboard built with the **MERN** stack (MongoDB, Express, React, Node.js) and Tailwind CSS. Designed to consolidate daily developer and productivity workflows into a unified, high-performance workspace.
+> A fast, clean, and responsive notes management workspace built on the **MERN** stack (MongoDB, Express, React, Node.js) and styled with Tailwind CSS. Designed to capture ideas, manage tasks, and organize daily notes through a modern slate-themed dashboard.
+
+🔗 **Live Deployment:** [https://mern-thinkboard-d3sq.onrender.com/](https://mern-thinkboard-d3sq.onrender.com/)  
+📦 **GitHub Repository:** [https://github.com/umeshxbhatt/mern-thinkboard](https://github.com/umeshxbhatt/mern-thinkboard)
 
 ---
 
-## 📸 Preview
+## 📸 Overview
 
-![DashFlow Preview](https://via.placeholder.com/1200x630.png?text=DashFlow+Dashboard+Preview)
-*(Replace with an actual screenshot or GIF of your running application)*
-
----
-
-## 🚀 Key Features
-
-* **⚡ Responsive Modular Architecture:** Component-driven workspace designed to support seamless switching across multiple independent utility tools.
-* **📝 Notes Management (CRUD):** 
-  * Responsive 4-column dynamic grid layout with 2-line auto-clamping.
-  * Modal-driven note creation with timestamps.
-  * Real-time deletion and persistent state synchronized with MongoDB.
-* **🎨 Modern Dark UI/UX:** Styled using a sleek Slate/Zinc aesthetic, backdrop blur effects, smooth micro-interactions, and collapsible interactive sidebar navigation.
-* **🔒 Production-Ready Backend:** RESTful API architecture built on Node.js and Express 5, featuring structured routing, error middleware, and MongoDB Atlas database integration.
-* **📱 Mobile-First Responsiveness:** Fully adaptable layouts optimized across mobile, tablet, and desktop viewports.
+![ThinkBoard Preview](https://via.placeholder.com/1200x630.png?text=ThinkBoard+MERN+Application+Preview)
+*(Tip: Add a real screenshot or GIF of your running ThinkBoard dashboard here)*
 
 ---
 
-## 🛠 Tech Stack
+## ✨ Key Features
+
+* **📝 Complete CRUD Operations:** Create, view, update, and delete notes with real-time feedback and persistent database synchronization.
+* **🗂️ Clean 4-Column Grid View:** Organized dashboard featuring intelligent multi-line clamping (`line-clamp-2`) for clean card typography and scannability.
+* **🎨 Modern Slate Aesthetic:** Minimalist dark mode interface built with Tailwind CSS, backdrop blurs, crisp micro-interactions, and collapsible sidebar navigation.
+* **📱 Responsive & Mobile-First:** Fluid layouts that adapt automatically across mobile devices, tablets, and wide desktop displays.
+* **🚀 Production-Ready Architecture:** 
+  * Node.js & Express REST API with modular controllers and routes.
+  * MongoDB Atlas persistence with Mongoose ODM data modeling.
+  * Express catch-all routing compatible with Single Page Application (SPA) reloads.
+
+---
+
+## 🛠️ Tech Stack
 
 | Layer | Technologies |
 | :--- | :--- |
 | **Frontend** | React, React Router, Tailwind CSS, Lucide Icons, Vite |
-| **Backend** | Node.js, Express.js (v5.x), CORS, dotenv |
+| **Backend** | Node.js, Express.js, CORS, dotenv |
 | **Database** | MongoDB Atlas, Mongoose ODM |
-| **Deployment** | Vercel / Render |
+| **Deployment** | Render |
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
-DashFlow/
+mern-thinkboard/
 ├── backend/
-│   ├── models/            # Mongoose Schemas (Note, User, etc.)
-│   ├── routes/            # REST API route handlers
-│   ├── controllers/       # Business logic controllers
-│   ├── config/            # Database connection & config
-│   ├── .env.example       # Example backend environment variables
-│   └── server.js          # Express server entry point & SPA fallback
+│   ├── config/            # MongoDB connection logic
+│   ├── controllers/       # Notes controller functions (CRUD)
+│   ├── models/            # Mongoose Schema (Note.js)
+│   ├── routes/            # Express API routes (/api/notes)
+│   ├── .env.example       # Sample environment configuration
+│   └── server.js          # Express entry point & static SPA serving
 │
 └── frontend/
-    ├── public/            # Static assets & favicon
+    ├── public/            # Static assets
     ├── src/
-    │   ├── components/    # Reusable UI components (Sidebar, Modals, Inputs)
-    │   ├── pages/         # View pages (Dashboard, NotesPage, Settings)
+    │   ├── components/    # Reusable UI elements (Sidebar, Navbar, Modals)
+    │   ├── pages/         # Page views (Dashboard, Notes, CreateNote)
     │   ├── App.jsx        # Routing configuration
-    │   └── index.css      # Tailwind directives & base styles
+    │   └── index.css      # Tailwind base and utility styling
     └── package.json
